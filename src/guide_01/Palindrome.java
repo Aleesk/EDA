@@ -12,7 +12,7 @@ public class Palindrome {
         }
         temp = n;
         while (temp > 0) {
-            palindrome += (int) ((temp % 10) * (Math.pow(10, count - 1)));
+            palindrome += (int) ((temp % 10) * (Math.pow(10, (count--) - 1)));
             temp /= 10;
         }
         return palindrome == n;
