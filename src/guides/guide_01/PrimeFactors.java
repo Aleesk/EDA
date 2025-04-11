@@ -1,4 +1,4 @@
-package guide_01;
+package guides.guide_01;
 
 import java.util.ArrayList;
 import java.util.Scanner;
