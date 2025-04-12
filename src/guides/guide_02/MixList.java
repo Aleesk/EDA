@@ -1,9 +1,9 @@
 package guides.guide_02;
 
-public class LinkedList {
+public class MixList {
     Node head;
 
-    LinkedList() {
+    MixList() {
         this.head = null;
     }
 
@@ -66,13 +66,13 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList list1 = new LinkedList();
+        MixList list1 = new MixList();
         list1.insertLast(3);
         list1.insertLast(5);
         list1.insertLast(7);
         list1.insertLast(9);
 
-        LinkedList list2 = new LinkedList();
+        MixList list2 = new MixList();
         list2.insertLast(1);
         list2.insertLast(2);
         list2.insertLast(8);
@@ -83,7 +83,7 @@ public class LinkedList {
         System.out.println("Lista 2:");
         list2.printList();
 
-        LinkedList listaMezclada = new LinkedList();
+        MixList listaMezclada = new MixList();
         listaMezclada.head = listaMezclada.mezclarListas(list1.head, list2.head);
 
         // Imprimimos la lista mezclada
