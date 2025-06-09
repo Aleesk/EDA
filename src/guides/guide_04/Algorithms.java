@@ -38,7 +38,6 @@ public class Algorithms {
     }
 
     public static int[] topPlayers(int N, int[] A, int K) {
-        int[] top = new int[K];
         PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.comparingInt(i -> A[i]));
         for (int i = 0; i < N; i++) {
             if (heap.size() < K) {
@@ -48,17 +47,17 @@ public class Algorithms {
                 heap.add(i);
             }
         }
-        for (int i = 0; i < K; i++)
-            if (!heap.isEmpty()) top[i] = heap.poll();
+        int[] top = new int[K];
+        int i = 0;
+        while (!heap.isEmpty()) top[i++] = heap.poll();
 
         return top;
     }
 
     public static int differentNumbers(int N, int[] A) {
         Set<Integer> nums = new HashSet<>();
-        for (int i = 0; i < N; i++) {
-            nums.add(A[i]);
-        }
+        for (int i = 0; i < N; i++) nums.add(A[i]);
+
         return nums.size();
     }
 
@@ -72,20 +71,19 @@ public class Algorithms {
     }
 
     public static void main(String[] args) {
-        Algorithms alg = new Algorithms();
-//        System.out.println(binarySearch(new int[]{5, 7, 9, 10, 20}, 4));
+        System.out.println(binarySearch(new int[]{5, 7, 9, 10, 20}, 4));
 
-//        int[] L = {5, 2, 3};
-//        int[] S = {8, 4, 9};
-//        System.out.println(maxComensales(3, L, S));
+        int[] L = {5, 2, 3};
+        int[] S = {8, 4, 9};
+        System.out.println(maxComensales(3, L, S));
 
-//        int[] arr = {10, 8, 2, 5, 20, 27, 1};
-//        System.out.println(Arrays.toString(topPlayers(arr.length - 1, arr, 3)));
+        int[] arr = {10, 8, 2, 5, 20, 27, 1};
+        System.out.println(Arrays.toString(topPlayers(arr.length - 1, arr, 3)));
 
-//        int[] arr = new int[]{10, 8, 2, 5, 8, 10, 2, 2};
-//        System.out.println(differentNumbers(arr.length - 1, arr));
+        int[] arr1 = new int[]{10, 8, 2, 5, 8, 10, 2, 2};
+        System.out.println(differentNumbers(arr1.length - 1, arr1));
 
-        int[] arr = new int[]{2, 7, 11, 15, 3};
-        System.out.println(sumaDeDos(arr.length - 1, arr, 9));
+        int[] arr2 = new int[]{2, 7, 11, 15, 3};
+        System.out.println(sumaDeDos(arr2.length - 1, arr2, 9));
     }
 }
