@@ -1,9 +1,9 @@
 package guides.guide_02;
 
 public class RotateMatrix {
-    public static void rotateMatrix(int[][] M, int inicio, int fin) {
+    public static int[][] rotateMatrix(int[][] M, int inicio, int fin) {
         if (inicio >= fin) {
-            return;
+            return M;
         }
 
         for (int i = 0; i < (fin - inicio); i++) {
@@ -15,6 +15,7 @@ public class RotateMatrix {
         }
 
         rotateMatrix(M, inicio + 1, fin - 1);
+        return M;
     }
 
     public static void print(int[][] M) {
@@ -29,4 +30,20 @@ public class RotateMatrix {
             System.out.println("}");
         }
     }
+
+    public static void main(String[] args) {
+        int[][] M = {
+                {1,2,3,4},
+                {5,6,7,8},
+                {9,10,11,12}
+                ,{13,14,15,16}
+        };
+        print(M);
+        System.out.println("---+-------+---");
+        print(rotateMatrix(M, 0,3));
+    }
 }
+
+
+
+
