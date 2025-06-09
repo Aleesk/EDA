@@ -1,9 +1,6 @@
 package classes.class_06;
 
 public class Queue {
-    Node head;
-    Node tail;
-
     public static class Node {
         int value;
         Node next;
@@ -12,42 +9,42 @@ public class Queue {
             this.value = value;
             this.next = null;
         }
-
-        public void setNext(Node node) {
-            this.next = node;
-        }
     }
+    Node head;
+    Node tail;
 
     public void enqueue(int value) {
-        Node nodeToInsert = new Node(value);
+        Node toEnQueueNode = new Node(value);
         if (this.head == null) {
-            this.head = nodeToInsert;
-            this.tail = nodeToInsert;
+            this.head = toEnQueueNode;
+            this.tail = toEnQueueNode;
+            return;
         }
-        this.tail.setNext(nodeToInsert);
-        this.tail = nodeToInsert;
+        this.tail.next = toEnQueueNode;
+        this.tail = toEnQueueNode;
     }
 
     public int dequeue() {
-        int nodeToDequeue = this.head.value;
+        int toDeQueueNodeValue = this.head.value;
         this.head = this.head.next;
         if (this.head == null) {
             this.tail = null;
         }
-        return nodeToDequeue;
+        return toDeQueueNodeValue;
     }
 
     public void printList() {
         if (this.head == null) {
-            System.out.println("Esta vacio");
+            System.out.println("Lista vacia");
             return;
         }
-        Node temp = this.head;
-        while (temp != null) {
-            System.out.println(temp.value);
-            temp = temp.next;
+        Node aux = this.head;
+        while (aux != null) {
+            System.out.println(aux.value);
+            aux = aux.next;
         }
     }
+
 
     public static void main(String[] args) {
         Queue l = new Queue();

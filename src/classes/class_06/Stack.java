@@ -3,7 +3,7 @@ package classes.class_06;
 public class Stack {
     Node top;
 
-    public static class Node {
+    public static class Node{
         int value;
         Node next;
 
@@ -11,25 +11,26 @@ public class Stack {
             this.value = value;
             this.next = null;
         }
-    }
 
-    public Stack() {
-        this.top = null;
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
     }
 
     public void push(int value) {
-        Node toInsertNode = new Node(value);
-        toInsertNode.next = this.top;
-        this.top = toInsertNode;
+        Node toPushNode = new Node(value);
+        toPushNode.next = this.top;
+        this.top = toPushNode;
     }
 
-    public void pop () {
+    public int pop() {
         if (this.top == null) {
-            System.out.println("null");
-            return;
+            throw new IllegalStateException("Stack is empty");
         }
-        System.out.println("Eliminando: " + this.top.value);
+        int topValue = this.top.value;
         this.top = this.top.next;
+        return topValue;
     }
 
     public void printList() {
@@ -49,13 +50,13 @@ public class Stack {
         s.push(8);
         s.push(5);
         s.printList();
-        s.pop();
+        System.out.println("Eliminado:" + s.pop());
         s.push(6);
         s.push(1);
         s.printList();
-        s.pop();
-        s.pop();
-        s.pop();
+        System.out.println("Eliminado:" + s.pop());
+        System.out.println("Eliminado:" + s.pop());
+        System.out.println("Eliminado:" + s.pop());
         s.printList();
     }
 }
